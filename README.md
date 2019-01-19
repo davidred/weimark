@@ -22,7 +22,25 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+require 'weimark'
+
+# Replace email, password, and agents_email (optional) with your own credentials
+@client = Weimark::Client.new(email: 'david@example.com', password: '1234567890')
+
+# Or default to ENV variables set in your application
+ENV['WEIMARK_EMAIL'] = 'david@example.com'
+ENV['WEIMARK_PASSWORD'] = '1234567890'
+ENV['AGENTS_EMAIL'] = 'david@example.com'
+
+@client = Weimark::Client.new
+
+# Get an application by application ID
+@client.get('987654321')
+
+# Create a new application
+@client.post({fname: 'JONATHAN', lname: 'CONSUMER', dob: '01/05/1987', gender: 'male', ssn: '485774859', streetnumber: '236', streetname: 'BIRCH', streettype: 'S', city: 'BURBANK', country: 'USA', suite: '1TEST', zip: '91502'})
+```
 
 ## Development
 
@@ -32,7 +50,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/weimark.
+Bug reports and pull requests are welcome on GitHub at https://github.com/davidred/weimark.
 
 ## License
 
